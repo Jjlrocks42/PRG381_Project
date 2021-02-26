@@ -8,6 +8,7 @@ public class User_Bookings implements DataWriter{
 
  public String Name;
 public Date date;
+public int booking_num;
 
     @Override
     public void Getname(String name) 
@@ -68,8 +69,10 @@ public Date date;
               
 
               try {
+                booking_num=0;
+                booking_num++;
                 FileWriter myWriter = new FileWriter("filename.txt");
-                myWriter.write("Files in Java might be tricky, but it is fun enough!"+" Right "+Name);
+                myWriter.write(booking_num+","+Name);
                 myWriter.close();
                 System.out.println("Successfully wrote to the file.");
               } catch (IOException e) {
