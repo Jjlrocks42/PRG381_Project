@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 
 public class DateDiff {
-    public void valdiDate(String bookingDate){//confirming a booking
+    public void validDate(String bookingDate){//confirming a booking
         try{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
 
