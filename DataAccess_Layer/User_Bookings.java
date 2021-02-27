@@ -12,11 +12,33 @@ public Date date;
 public int booking_num , KidsTotal, AdultTotal;
 public double Amount, Amountneeded;
 
+public void GetEvent(String name) 
+{
+    this.event=name;
+}
+
+public void GetAdress(String adres) 
+{
+    this.adress=adres;
+}
+
+public void GetNumber(String num) 
+{
+    this.number=num;
+}
+
+public void GetKidsTotal(int kids) 
+{
+    this.KidsTotal=kids;
+}
+
+public void GetAdultTotal(int adult) 
+{
+    this.AdultTotal=adult;
+}
     @Override
     public void Getname(String name) 
     {
-        // TODO Auto-generated method stub
-        //name="Juan";
         this.Name=name;
         System.out.println(name);
     }
@@ -24,31 +46,31 @@ public double Amount, Amountneeded;
         @Override
         public void GetDate(Date Booking_Date)
          {
-            // TODO Auto-generated method stub
+            
             this.date=Booking_Date;
         }
 
         @Override
         public void GetExtraInformation(String info) {
-            // TODO Auto-generated method stub
+            
 
         }
 
         @Override
         public void AmountPaid(Double amount) {
-            // TODO Auto-generated method stub
+            this.Amount=amount;
 
         }
 
         @Override
         public void GetItemPrice(Double price) {
-            // TODO Auto-generated method stub
+            
 
         }
 
         @Override
         public void Amountdue(Double amountdue) {
-            // TODO Auto-generated method stub
+            this.Amountneeded=amountdue;
 
         }
 
