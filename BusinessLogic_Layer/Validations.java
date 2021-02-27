@@ -40,7 +40,7 @@ public class Validations implements Interface, Calculations {
 
     @Override
     public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {//Checks if date is available
-     //   return bookingDate.getTime() >= nextClosestDate.getTime();
+     //   return bookingDate.getTime() < nextClosestDate.getTime();
     }
 
     @Override
