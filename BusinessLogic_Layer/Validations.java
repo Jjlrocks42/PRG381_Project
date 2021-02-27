@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 public class Validations implements Interface{
    
     @Override
-    public void validDate(String bookingDate) {
+    public void validDate(String bookingDate) {//checks if date is 15 days from current date
         try{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
     
@@ -39,23 +39,7 @@ public class Validations implements Interface{
     }
 
     @Override
-    public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {
+    public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {//Checks if date is available
         //return bookingDate.getTime() >= nextClosestDate.getTime();
     }
-
-    @Override
-    public void adultdiscounted(int numPeople) {
-        //if(noAdults>=40){
-        //    adultMealP*=adults;
-        //   return adultMealP=adultMealP-(adultMealP*0.15);
-        //}else{
-        //    return adultMealP;
-        // }
-
-    }
-
-
-
-
-
 }
