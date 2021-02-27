@@ -1,6 +1,5 @@
 package BusinessLogic_Layer;
 
-public class Event 
-{
+public interface Calculations {
     
 }
