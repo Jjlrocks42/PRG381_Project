@@ -1,13 +1,23 @@
-package DataAccess_Layer;
+
+public interface DataWriter{
+   
+
+    public void Getname( String name);
+
+    public void GetDate( Date Booking_Date);
+   
+
+    public  void GetExtraInformation( String info);
+
+    public  void AmountPaid(Double amount) ;
+   
+    public  void GetItemPrice(Double price) ;
+  
 
 
-/**
- * DataWriter
- */
-public class DataWriter 
-{
-   // float adultMealp;
-   // BigDecimal temp=new BigDecimal(adultMealp );
+    public  void Amountdue(Double amountdue) ;
+   
     
+    public  void Text();
 }
 
