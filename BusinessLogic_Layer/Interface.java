@@ -8,4 +8,6 @@ public interface Interface
 
     public void dateAvailable(String bookingDate, Date nextClosestDate);
     public void adultdiscounted(int numPeople);
+
+    
 }
