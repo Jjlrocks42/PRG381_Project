@@ -1,11 +1,4 @@
-package DataAccess_Layer;
 
-import java.util.Date;
-
-
-/**
- * DataWriter
- */
 public interface DataWriter{
    
 
@@ -27,3 +20,4 @@ public interface DataWriter{
     
     public  void Text();
 }
+
