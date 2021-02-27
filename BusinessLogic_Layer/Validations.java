@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.text.SimpleDateFormat;
 
 
-public class DateFunctions implements Calculations{
+public class Validations implements Interface{
    
     @Override
     public void validDate(String bookingDate) {
@@ -26,13 +26,16 @@ public class DateFunctions implements Calculations{
             
             if(dateDiff > 15)
             {
-    
+                System.out.println("Date is valid");
             } 
+            else
+            {
+                System.out.println("Date is invalid");
+            }
                   
             }catch(Exception e){
                 e.printStackTrace();
-            }
-        
+            }   
     }
 
     @Override
