@@ -40,7 +40,18 @@ public class Validations implements Interface{
 
     @Override
     public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {
-        return bookingDate.getTime() >= nextClosestDate.getTime();
+        //return bookingDate.getTime() >= nextClosestDate.getTime();
+    }
+
+    @Override
+    public void adultdiscounted(int numPeople) {
+        //if(noAdults>=40){
+        //    adultMealP*=adults;
+        //   return adultMealP=adultMealP-(adultMealP*0.15);
+        //}else{
+        //    return adultMealP;
+        // }
+
     }
 
 
