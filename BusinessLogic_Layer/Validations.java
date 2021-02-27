@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.text.SimpleDateFormat;
 
 
-public class Validations implements Interface{
+public class Validations implements Interface, Calculations {
    
     @Override
     public void validDate(String bookingDate) {//checks if date is 15 days from current date
@@ -40,6 +40,24 @@ public class Validations implements Interface{
 
     @Override
     public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {//Checks if date is available
-        //return bookingDate.getTime() >= nextClosestDate.getTime();
+     //   return bookingDate.getTime() >= nextClosestDate.getTime();
     }
+
+    @Override
+    public Double mealAmmountDue(int adultTotal,int childTotal, Double AdultmealPrice, Double childmealPrice, Double othermealPrice) {
+        Double pAdult,pChild,pOther;
+        if(adultTotal>=40){
+            AdultmealPrice*= adultTotal;
+            pAdult= AdultmealPrice-(AdultmealPrice*0.15);
+        }else{
+            pAdult= adultTotal*AdultmealPrice;
+        }
+        pChild= childTotal*childmealPrice;
+        pOther= (adultTotal+childTotal)*othermealPrice;
+
+
+        return pAdult+pChild+pOther;
+    }
+
+
 }
