@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class User_Bookings implements DataWriter{
 
- public String Name, data;
+ public String Name, data, number, adress, event;
 public Date date;
-public int booking_num = 1;
-
+public int booking_num , KidsTotal, AdultTotal;
+public double Amount, Amountneeded;
 
     @Override
     public void Getname(String name) 
@@ -54,103 +54,54 @@ public int booking_num = 1;
 
 		@Override
 		public void Text() {
-			// TODO Auto-generated method stub
-			try {
+      
+      booking_num++;
+      try{
+        File myObj = new File("filename.txt");
+        if (myObj.createNewFile()) {
+          System.out.println("File created: " + myObj.getName());
 
-
-
-        
-              
-                File myObj = new File("filename.txt");
-                if (myObj.createNewFile()) {
-                  System.out.println("File created: " + myObj.getName());
-                } else 
-                {
-
-                  System.out.println("File already exists.");
-
-                //THis is to read from the textfile   This is to keep track of the bookings and this is also to keep track of the order numbers                 
-                  Scanner myReader = new Scanner(myObj);
+          try {
+                  
+            FileWriter myWriter = new FileWriter("filename.txt");
+            PrintWriter pw=new PrintWriter(myWriter);
+          pw.println(booking_num+","+Name+","+event+","+adress+","+number+","+AdultTotal+","+KidsTotal+","+date+","+Amount+","+Amountneeded);
+          pw.close();
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
+        } else 
+        {
+          
+          Scanner myReader = new Scanner(myObj);
                   while (myReader.hasNextLine()) {
                     data = myReader.nextLine();
                     System.out.println(data);
                   }
-                //   FileReader fr=new FileReader(myObj);
-                //   BufferedReader br=new BufferedReader(fr);
-                 
-                //  //this is to iterate through the characters in the file to find the booking
-                //   int c = 0;             
-                //   while((c = br.read()) != -1)         //Read char by Char
-                //   {
-                //         char character = (char) c;          //converting integer to char
-                //         System.out.println(character);        //Display the Character
-                //   }
-                  
-                  myReader.close();
-
-                  String s = data;
-
-                          String[] fragments = s.split(" ");
-                          
-                          String firstColumn = fragments[0];
-                          
-                          boolean hasI = firstColumn.contains(String.valueOf(booking_num));
-                          
-
-                          if (hasI==true)
-                           {
-                             booking_num++;
-                             System.out.println("Fragment: "+firstColumn+" contains i: "+hasI+" thats why i want the first fragment: "+firstColumn);
-                             
-                                  FileWriter myWriter = new FileWriter("filename.txt");
-                                  myWriter.append(booking_num+","+Name);
-                                  myWriter.close();
-                                  System.out.println("Successfully Appended to the file.");
-                          } else 
-                          {
-                                  System.out.println("The booking is still avalable");
-
-
-                                  try {
-                      
-                                    FileWriter myWriter = new FileWriter("filename.txt");
-                                    myWriter.write(booking_num+","+Name);
-                                    myWriter.close();
-                                    System.out.println("Successfully wrote to the file.");
-                                  } catch (IOException e) {
-                                    System.out.println("An error occurred.");
-                                    e.printStackTrace();
-                                  }
+          myReader.close();
+          String test=data.substring(0, data.indexOf(','));
+          booking_num=Integer.parseInt(test);
+          booking_num++;
+          System.out.println("File already exists.");
+          FileWriter myWriter = new FileWriter("filename.txt",true);
+          PrintWriter pw=new PrintWriter(myWriter);
+          pw.println(booking_num+","+Name+","+event+","+adress+","+number+","+AdultTotal+","+KidsTotal+","+date+","+Amount+","+Amountneeded);
+          pw.close();
+        }
+      }catch (IOException e) {
+        System.err.println("An error occurred.");
+        e.printStackTrace();
+      }
+			  
               
-
-                          }
-                         // String firstColumn = fragments[0];
-                          
-                         
-
-
-
-
-
-                  //this is to get info on the file
-                  System.out.println("File name: " + myObj.getName());
-                  System.out.println("Absolute path: " + myObj.getAbsolutePath());
-                  System.out.println("Writeable: " + myObj.canWrite());
-                  System.out.println("Readable " + myObj.canRead());
-                  System.out.println("File size in bytes " + myObj.length());
-
-                }
-              } catch (IOException e) {
-                System.err.println("An error occurred.");
-                e.printStackTrace();
-              }
-              
-
     }
     
     
 
-  }
+}
       
             
 
