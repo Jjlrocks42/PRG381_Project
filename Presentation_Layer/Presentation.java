@@ -17,12 +17,12 @@ public class Presentation
     String name = sc.next();
     usr.Getname(name); 
 
-    System.out.println("Enter your name");
+    System.out.println("Enter booking your date");
     String d =sc.next();
    // Date date = Date.parse(d);
    
     //usr.GetDate(date);
          usr.Text();
-
+        
       }
 }
