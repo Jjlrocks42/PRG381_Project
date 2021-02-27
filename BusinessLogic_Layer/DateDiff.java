@@ -5,12 +5,11 @@ import java.util.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.math.*;
 import java.text.SimpleDateFormat;
 
 
 public class DateDiff {
-    public void confirming(String bookingDate){//confirming a booking
+    public void valdiDate(String bookingDate){//confirming a booking
         try{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
 
