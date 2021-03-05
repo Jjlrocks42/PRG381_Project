@@ -1,3 +1,4 @@
+
 package DataAccess_Layer;
 
 import java.io.*;
@@ -171,5 +172,3 @@ public void totalPeople() {
     
 
 
-        
-      
