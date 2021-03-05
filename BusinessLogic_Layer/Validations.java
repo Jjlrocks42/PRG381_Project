@@ -1,6 +1,10 @@
 package BusinessLogic_Layer;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import DataAccess_Layer.User_Bookings;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +22,7 @@ public class Validations implements Interface, Calculations {
             Date curDate = new Date();
             SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/uuuu");
             String curdateString = formatDate.format(curDate);;
+            bookingDate = formatDate.format(bookingDate);
     
             LocalDate date1 = LocalDate.parse(curdateString,formatter);
             LocalDate date2 = LocalDate.parse(bookingDate,formatter);
@@ -39,8 +44,13 @@ public class Validations implements Interface, Calculations {
     }
 
     @Override
-    public void dateAvailable(String bookingDate, java.sql.Date nextClosestDate) {//Checks if date is available
-     //   return bookingDate.getTime() < nextClosestDate.getTime();
+    public String dateAvailable(String bookingDate) {
+        User_Bookings users = new User_Bookings();
+        List<String> textfile = new ArrayList<>();
+        
+         
+        
+        return bookingDate;
     }
 
     @Override

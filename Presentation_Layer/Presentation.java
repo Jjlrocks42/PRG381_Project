@@ -9,14 +9,14 @@ import DataAccess_Layer.Items;
 public class Presentation 
 {
     public static void main(String[] args) {
-        System.out.print("\033[H\033[2J");  
+    System.out.print("\033[H\033[2J");  
     System.out.flush();  
-        System.out.println("hi ");
+    System.out.println("hi ");
+    
 
     User_Bookings usr = new User_Bookings();
     Items items= new Items();
     Scanner sc = new Scanner(System.in);
-
     System.out.println("Enter your name");
     String name = sc.next();
     usr.Getname(name); 
@@ -30,8 +30,8 @@ public class Presentation
     usr.GetPhone(Phone); 
 
     System.out.println("Enter booking your date");
-    long d = Date.parse(sc.next());
-    usr.GetDate(d); 
+    //long d = Date.parse(sc.next());
+    //usr.GetDate(d); 
 
     System.out.println("Enter your Phone address");
     String address = sc.next();
@@ -54,7 +54,6 @@ public class Presentation
     items.Getname(itemname);
 
     items.Text();
-
 
 
 

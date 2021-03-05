@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package DataAccess_Layer;
 
 import java.util.Date;
@@ -11,45 +10,7 @@ public String Name;
 public double Price;
 public int booking_num;
 
-    @Override
-    public void Getname(String name) {
-        // TODO Auto-generated method stub
-        this.Name=name;
-    }
 
-    @Override
-    public void GetDate(Date Booking_Date) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void GetExtraInformation(String info) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void AmountPaid(Double amount) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void GetItemPrice(Double price) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void Amountdue(Double amountdue) {
-        // TODO Auto-generated method stub
-
-    }
-
-    public void getBooking_num(int Book) {
-        this.booking_num=Book;
-    }
 
     @Override
     public void Text() {
@@ -90,6 +51,12 @@ public int booking_num;
     }
 
     @Override
+    public void Getname(String name) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
     public void GetSurname(String Surname) {
         // TODO Auto-generated method stub
 
@@ -102,13 +69,31 @@ public int booking_num;
     }
 
     @Override
-    public void GetDate(long Booking_Date) {
+    public void GetDate(java.sql.Date Booking_Date) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
     public void GetAdress(String adress) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetExtraInformation(String info) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void AmountPaid(Double amount) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetItemPrice(Double price) {
         // TODO Auto-generated method stub
 
     }
@@ -130,5 +115,10 @@ public int booking_num;
         // TODO Auto-generated method stub
 
     }
-    
+
+    @Override
+    public void Amountdue(Double amountdue) {
+        // TODO Auto-generated method stub
+
+    }
 }

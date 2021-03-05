@@ -1,15 +1,17 @@
+package DataAccess_Layer;
+
 import java.sql.Date;
 
 public interface DataWriter {
    
-
+    
     public void Getname( String name);
 
     public void GetSurname( String Surname);
 
     public void GetPhone( String phoneNumber);
 
-    public void GetDate( long Booking_Date);
+    public void GetDate( Date Booking_Date);
     
     public void GetAdress( String adress);
 
