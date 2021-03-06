@@ -3,6 +3,7 @@ package Presentation_Layer;
 import java.util.Date;
 import java.util.Scanner;
 
+import BusinessLogic_Layer.Validations;
 import DataAccess_Layer.User_Bookings;
 import DataAccess_Layer.Items;
 
@@ -15,6 +16,7 @@ public class Presentation
     
 
     User_Bookings usr = new User_Bookings();
+    Validations valid = new Validations();
     Items items= new Items();
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter your name");
@@ -29,7 +31,27 @@ public class Presentation
     String Phone = sc.next();
     usr.GetPhone(Phone); 
 
-    System.out.println("Enter booking your date");
+    System.out.println("Enter booking your date (dd/mm/yyyy)");
+    
+    String date = sc.next();
+    
+    if (valid.dateAvailable(date)== false) {
+        while (valid.dateAvailable(date)==false) {
+            System.out.println("Date is taken");
+            System.out.println("Enter booking your date (dd/mm/yyyy)");
+            date =sc.next();
+            if (valid.validDate(date)==false) {
+                System.out.println("Date must be 15 days from today");
+                System.out.println("Enter booking your date (dd/mm/yyyy)");
+                date=sc.next();
+                
+            }
+        }
+    }
+    
+        
+    
+    
     //long d = Date.parse(sc.next());
     //usr.GetDate(d); 
 
