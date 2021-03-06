@@ -9,10 +9,12 @@ import DataAccess_Layer.User_Bookings;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 
-public class Validations implements Interface, Calculations {
+public class Validations implements Validators {
+    
    
     @Override
     public boolean validDate(String bookingDate) {//checks if date is 15 days from current date
@@ -41,13 +43,13 @@ public class Validations implements Interface, Calculations {
     }
 
     @Override
-    public boolean dateAvailable(String bookingDate) {
+    public boolean dateAvailable(String bookingDate) throws IOException {
         boolean available=true;
+        List<User_Bookings> listBookings= User_Bookings.read_file();
         
-        List<Event> events = new ArrayList<>();
         //TODO: events = method that reads textfile
-        for (Event event : events) {
-            if (event.date == bookingDate) {
+        for (User_Bookings list : listBookings) {
+            if (list.date == Long.parseLong(bookingDate))  {
                 available = false;
             }
         }

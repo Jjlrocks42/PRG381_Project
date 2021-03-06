@@ -1,5 +1,6 @@
 package Presentation_Layer;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import DataAccess_Layer.Items;
 
 public class Presentation 
 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     System.out.print("\033[H\033[2J");  
     System.out.flush();  
     System.out.println("hi ");
