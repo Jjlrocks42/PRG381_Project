@@ -15,7 +15,8 @@ import java.text.SimpleDateFormat;
 public class Validations implements Interface, Calculations {
    
     @Override
-    public void validDate(String bookingDate) {//checks if date is 15 days from current date
+    public boolean validDate(String bookingDate) {//checks if date is 15 days from current date
+        boolean valid = false;
         try{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
     
@@ -31,26 +32,28 @@ public class Validations implements Interface, Calculations {
             
             if(dateDiff > 15)
             {
-                System.out.println("Date is valid");
+                valid = true;
             } 
-            else
-            {
-                System.out.println("Date is invalid");
-            }
-                  
             }catch(Exception e){
                 e.printStackTrace();
-            }   
+            }  
+        return valid; 
     }
 
     @Override
-    public String dateAvailable(String bookingDate) {
-        User_Bookings users = new User_Bookings();
-        List<String> textfile = new ArrayList<>();
+    public boolean dateAvailable(String bookingDate) {
+        boolean available=true;
         
+        List<Event> events = new ArrayList<>();
+        //TODO: events = method that reads textfile
+        for (Event event : events) {
+            if (event.date == bookingDate) {
+                available = false;
+            }
+        }
          
         
-        return bookingDate;
+        return available;
     }
 
     @Override
