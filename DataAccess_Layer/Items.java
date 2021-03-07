@@ -1,14 +1,39 @@
 package DataAccess_Layer;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.io.*;
 import java.util.Scanner;
 
-public class Items implements DataWriter {
 
-public String Name;
-public double Price;
-public int booking_num;
+
+public class Items implements DataWriter
+ {
+
+
+        private List n;
+    public String Name;
+    public double Price;
+    public int booking_num;
+    public int amount;
+
+    void Items()
+    {
+
+    }
+
+
+    
+    void Items(String ItemName,Double price,int Amount ,int Booking_num)
+    {
+        this.Name=ItemName;
+        this.Price=price;
+        this.amount=Amount;
+
+    }
+
+
 
     @Override
     public void Getname(String name) {
@@ -16,11 +41,9 @@ public int booking_num;
         this.Name=name;
     }
 
-    @Override
-    public void GetDate(Date Booking_Date) {
-        // TODO Auto-generated method stub
+  
 
-    }
+
 
     @Override
     public void GetExtraInformation(String info) {
@@ -50,6 +73,45 @@ public int booking_num;
         this.booking_num=Book;
     }
 
+
+    @Override
+    public void GetSurname(String Surname) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetPhone(String phoneNumber) {
+        // TODO Auto-generated method stub
+
+    }
+
+    
+
+    @Override
+    public void GetAdress(String adress) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void AmountofAdults(int Pnum) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void Amountofkids(int knum) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void totalPeople() {
+        // TODO Auto-generated method stub
+
+    }
+    
     @Override
     public void Text() {
         try{
@@ -85,6 +147,16 @@ public int booking_num;
         }
         
 
+        
+    }
+
+   
+
+
+
+    @Override
+    public void GetDate(String d) {
+        // TODO Auto-generated method stub
         
     }
     
