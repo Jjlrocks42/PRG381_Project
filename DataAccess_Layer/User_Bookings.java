@@ -14,7 +14,7 @@ import DataAccess_Layer.*;
 public class User_Bookings implements DataWriter{
 
  public String Name,Surname, data, number, adress, event,INFO;
-public Long date;
+public String date;
 public int booking_num , KidsTotal, AdultTotal,People;
 public double Amount;
 public double Amountneeded;
@@ -215,11 +215,11 @@ public void Amountdue(Double amountdue) {
     return this.booking_num+','+this.Name+','+this.Surname+','+this.event+','+this.adress+','+this.number+','+this.date+','+this.AdultTotal+','+this.KidsTotal+','+this.data+','+this.Amount+','+ this.amountdue;
   }
 
+
   @Override
-  public void GetDate(Long d) {
+  public void GetDate(String d) {
     // TODO Auto-generated method stub
-    this.date=d;
-    
+    this.date= d;
   }
 
  

@@ -1,62 +1,73 @@
 package BusinessLogic_Layer;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import DataAccess_Layer.User_Bookings;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 
 public class Validations implements Validators {
     
    
     @Override
-    public boolean validDate(String bookingDate) {//checks if date is 15 days from current date
+    public boolean validDate(String bookingDate) {//checks if date is 15 days from current date(works)
         boolean valid = false;
-        try{
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");//format date
+        String today = LocalDate.now().format(formatter);//get todays date
+        LocalDate date1 = LocalDate.parse(today,formatter);
+        LocalDate date2 = LocalDate.parse(bookingDate,formatter);
+
+        long dateDiff = ChronoUnit.DAYS.between(date1, date2);//compare dates
+        if (dateDiff >=15) {
+            valid = true;
+        }
     
-            Date curDate = new Date();
-            SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/uuuu");
-            String curdateString = formatDate.format(curDate);;
-            bookingDate = formatDate.format(bookingDate);
-    
-            LocalDate date1 = LocalDate.parse(curdateString,formatter);
-            LocalDate date2 = LocalDate.parse(bookingDate,formatter);
-    
-            long dateDiff = ChronoUnit.DAYS.between(date1, date2);
-            
-            if(dateDiff > 15)
-            {
-                valid = true;
-            } 
-            }catch(Exception e){
-                e.printStackTrace();
-            }  
         return valid; 
     }
 
+    //function doesnt work because date cannot be extracted from a object list
+    //need to find a way to read data into an objet array eg Userbookings[] userbookings;
     @Override
     public boolean dateAvailable(String bookingDate) throws IOException {
         boolean available=true;
-        List<User_Bookings> listBookings= User_Bookings.read_file();
+        User_Bookings usr = new User_Bookings();
+        List<User_Bookings> userbookings = usr.read_file();
         
-       
-        for (User_Bookings list : listBookings) {
-            if (list.date == Long.parseLong(bookingDate))  {
+        for (User_Bookings user_Bookings : userbookings) {
+            if(user_Bookings.date == bookingDate){
                 available = false;
             }
+
         }
+    
          
         
         return available;
     }
-
     
+    public static String[] unavailibleDates(){
+        User_Bookings[] dates;
+        int i = 0;
+        for (User_Bookings booking : dates) {
+            dates[i] = booking.days;//apparently an object list can not get spesific data
+            i++;
+        }
+        
+        
+        return dates;
+    }
+    
+
+
+    @Override
     public Double mealAmmountDue(int adultTotal,int childTotal, Double AdultmealPrice, Double childmealPrice, Double othermealPrice) {
         Double pAdult,pChild,pOther;
         if(adultTotal>=40){
@@ -71,10 +82,6 @@ public class Validations implements Validators {
 
         return pAdult+pChild+pOther;
     }
-
-
-
-
 
 
 }

@@ -1,11 +1,13 @@
 package Presentation_Layer;
 
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
-
-
+import BusinessLogic_Layer.Validations;
 import DataAccess_Layer.*;
+import jdk.nashorn.api.tree.WhileLoopTree;
 
 public class Presentation 
 {
@@ -17,12 +19,13 @@ public class Presentation
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.print("\033[H\033[2J");  
-    System.out.flush();  
-        System.out.println("hi ");
+        System.out.flush();  
+        
 
     User_Bookings usr = new User_Bookings();
+    Validations valid = new Validations();
     Items items= new Items();
     Scanner sc = new Scanner(System.in);
 
@@ -43,57 +46,26 @@ public class Presentation
          System.out.println("\n");
     }
 
-    usr.GetPhone(Phone); 
-
-   
-    int year=2020;
-    int month;
-    int date;
-    int hrs;
-    int min;
-    int sec =0;
-
-    System.out.println("Enter booking your date Year");
-    year = Integer.parseInt( sc.next());
-    System.out.println("Enter booking your date month in number format");
-    month = Integer.parseInt( sc.next());
-    while (month>12)
-     {
-        System.out.println("Enter a Valid month in number format");
-    month = Integer.parseInt( sc.next());
+    //shows all dates that have been booked
+    System.out.println("Dates that are allready booked: \n");
+    String[] unavailibleDates= valid.unavailibleDates();
+    for (int i = 0; i < unavailibleDates.length; i++) {
+        System.out.print(unavailibleDates[i] + ", ");
     }
 
-    System.out.println("Enter booking your date day in number format");
-    date = Integer.parseInt( sc.next());
-
-    while (date>31)
-    {
-       System.out.println("Enter a Valid day in number format");
-   date = Integer.parseInt( sc.next());
-   }
-
-
-    System.out.println("Enter booking your event's starting hour");
-    hrs = Integer.parseInt( sc.next());
-
-
-    while (hrs>24)
-    {
-       System.out.println("Enter a Valid Hour in number format");
-   hrs = Integer.parseInt( sc.next());
-   }
-
-    System.out.println("Enter booking your event's starting minutes");
-    min = Integer.parseInt( sc.next());
-
-    while (min>59)
-    {
-       System.out.println("Enter a Valid amount of min in number format");
-         min = Integer.parseInt( sc.next());
-   }
+    //asks user for a date and checks if it is > 15 days and if it has not been taken yet
+    System.out.println("Please enter your booking date (dd/mm/yyyy)");
+    String line = sc.next();
+    boolean dateNotBooked = valid.dateAvailable(line);
     
-    Long d =Date.UTC(year, month, date, hrs, min, sec);
-    usr.GetDate(d); 
+    while (valid.dateAvailable(line)== false &&  valid.validDate(line) == false) {
+        System.out.println("Date should be at leas 15 days from now");
+        System.out.println("Please enter your booking date (dd/mm/yyy");
+        line = sc.next();
+    }
+    System.out.println("Date is valid");
+
+
 
     System.out.println("Enter your home address");
     String address = sc.next().toLowerCase();
@@ -130,10 +102,14 @@ public class Presentation
     System.out.print("\033[H\033[2J");  
     System.out.flush();  
 
+
+    
+    //no longer needed beacause a function was written in validations(
     Opps opp1 = Opps.exit;
     int counter=1;
 
-    for (Opps opp : Opps.values()) 
+
+            for (Opps opp : Opps.values()) 
     {
         System.out.println(counter+".) "+opp);
         
