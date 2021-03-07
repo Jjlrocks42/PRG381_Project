@@ -13,48 +13,52 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 
-public class Validations implements Validators {
-    
-   
+public class Validations implements Validators, Calculations {
+
     @Override
+    public void validDate(String bookingDate) {//checks if date is 15 days from current date
     public boolean validDate(String bookingDate) {//checks if date is 15 days from current date
         boolean valid = false;
         try{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");
-    
-            Date curDate = new Date();
-            SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/uuuu");
-            String curdateString = formatDate.format(curDate);;
-            bookingDate = formatDate.format(bookingDate);
-    
-            LocalDate date1 = LocalDate.parse(curdateString,formatter);
-            LocalDate date2 = LocalDate.parse(bookingDate,formatter);
-    
-            long dateDiff = ChronoUnit.DAYS.between(date1, date2);
-            
+
+// @@ -31,26 +32,28 @@ 
+gitpublic void validDate(String bookingDate) {//checks if date is 15 days from curr
+
             if(dateDiff > 15)
             {
+                System.out.println("Date is valid");
                 valid = true;
             } 
+            else
+            {
+                System.out.println("Date is invalid");
+            }
+
             }catch(Exception e){
                 e.printStackTrace();
+            }   
             }  
         return valid; 
     }
 
     @Override
-    public boolean dateAvailable(String bookingDate) throws IOException {
+    public String dateAvailable(String bookingDate) {
+        User_Bookings users = new User_Bookings();
+        List<String> textfile = new ArrayList<>();
+    public boolean dateAvailable(String bookingDate) {
         boolean available=true;
-        List<User_Bookings> listBookings= User_Bookings.read_file();
-        
+
+        List<Event> events = new ArrayList<>();
         //TODO: events = method that reads textfile
-        for (User_Bookings list : listBookings) {
-            if (list.date == Long.parseLong(bookingDate))  {
+        for (Event event : events) {
+            if (event.date == bookingDate) {
                 available = false;
             }
         }
-         
-        
+
+
+        return bookingDate;
         return available;
     }
 
@@ -69,10 +73,6 @@ public class Validations implements Validators {
         }
         pChild= childTotal*childmealPrice;
         pOther= (adultTotal+childTotal)*othermealPrice;
-
-
         return pAdult+pChild+pOther;
     }
-
-
 }
