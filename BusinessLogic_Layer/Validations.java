@@ -1,16 +1,14 @@
 package BusinessLogic_Layer;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 
 import DataAccess_Layer.User_Bookings;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 
 public class Validations implements Validators {
@@ -47,7 +45,7 @@ public class Validations implements Validators {
         boolean available=true;
         List<User_Bookings> listBookings= User_Bookings.read_file();
         
-        //TODO: events = method that reads textfile
+       
         for (User_Bookings list : listBookings) {
             if (list.date == Long.parseLong(bookingDate))  {
                 available = false;
@@ -58,7 +56,7 @@ public class Validations implements Validators {
         return available;
     }
 
-    @Override
+    
     public Double mealAmmountDue(int adultTotal,int childTotal, Double AdultmealPrice, Double childmealPrice, Double othermealPrice) {
         Double pAdult,pChild,pOther;
         if(adultTotal>=40){
@@ -73,6 +71,10 @@ public class Validations implements Validators {
 
         return pAdult+pChild+pOther;
     }
+
+
+
+
 
 
 }

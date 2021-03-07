@@ -71,63 +71,45 @@ public void Text() {
 
 }
 
+
 @Override
-public void Getname(String name) {
+public void GetSurname(String surname) 
+{
+  // TODO Auto-generated method stub
+  this.Surname=surname;
+}
+
+
+
+@Override
+public void GetPhone(String phoneNumber) 
+{
+  this.number=phoneNumber;
   // TODO Auto-generated method stub
 
 }
 
 @Override
-public void GetSurname(String Surname) {
+public void GetAdress(String Adress) 
+{
+  this.adress=Adress;
   // TODO Auto-generated method stub
 
 }
 
 @Override
-public void GetPhone(String phoneNumber) {
+public void AmountofAdults(int Pnum) 
+{
   // TODO Auto-generated method stub
+  this.AdultTotal=Pnum;
 
 }
 
 @Override
-public void GetDate(java.sql.Date Booking_Date) {
+public void Amountofkids(int knum) 
+{
   // TODO Auto-generated method stub
-
-}
-
-@Override
-public void GetAdress(String adress) {
-  // TODO Auto-generated method stub
-
-}
-
-@Override
-public void GetExtraInformation(String info) {
-  // TODO Auto-generated method stub
-
-}
-
-@Override
-public void AmountPaid(Double amount) {
-  // TODO Auto-generated method stub
-
-}
-
-@Override
-public void GetItemPrice(Double price) {
-  // TODO Auto-generated method stub
-
-}
-
-@Override
-public void AmountofAdults(int Pnum) {
-  // TODO Auto-generated method stub
-
-}
-
-@Override
-public void Amountofkids(int knum) {
-  // TODO Auto-generated method stub
+  this.KidsTotal=knum;
 
 }
 
@@ -135,7 +117,55 @@ public void Amountofkids(int knum) {
 public void totalPeople() {
   // TODO Auto-generated method stub
 
+  this.People=this.AdultTotal+KidsTotal;
+
 }
+
+
+@Override
+public void Getname(String name) {
+  // TODO Auto-generated method stub
+  // name="Juan";
+  this.Name = name;
+  System.out.println(name);
+}
+
+@Override
+public void GetDate(long d) {
+  // TODO Auto-generated method stub
+  this.date = d;
+}
+
+@Override
+public void GetExtraInformation(String info) {
+  // TODO Auto-generated method stub
+  this.INFO = info;
+}
+
+@Override
+public void AmountPaid(Double amount) {
+  // TODO Auto-generated method stub
+  this.Amount = amount;
+
+}
+
+@Override
+public void GetItemPrice(Double price) {
+  // TODO Auto-generated method stub
+  this.Amountneeded = price;
+}
+
+@Override
+public void Amountdue(Double amountdue) {
+
+  Double amp, amn;
+  amp = Amount;
+  amn = Amountneeded;
+
+  amountdue = amn - amp;
+  this.amountdue = amountdue;
+}
+
 
 
   public static List<User_Bookings> read_file() throws IOException{

@@ -55,6 +55,49 @@ public int booking_num;
         this.booking_num=Book;
     }
 
+
+    @Override
+    public void GetSurname(String Surname) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetPhone(String phoneNumber) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetDate(long Booking_Date) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void GetAdress(String adress) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void AmountofAdults(int Pnum) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void Amountofkids(int knum) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void totalPeople() {
+        // TODO Auto-generated method stub
+
+    }
+    
     @Override
     public void Text() {
         try{
