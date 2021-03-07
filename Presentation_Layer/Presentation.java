@@ -1,25 +1,24 @@
 package Presentation_Layer;
 
-import java.io.IOException;
+
 import java.util.Date;
 import java.util.Scanner;
 
-import BusinessLogic_Layer.Validations;
+
 import DataAccess_Layer.User_Bookings;
 import DataAccess_Layer.Items;
 
 public class Presentation 
 {
-    public static void main(String[] args) throws IOException {
-    System.out.print("\033[H\033[2J");  
+    public static void main(String[] args) {
+        System.out.print("\033[H\033[2J");  
     System.out.flush();  
-    System.out.println("hi ");
-    
+        System.out.println("hi ");
 
     User_Bookings usr = new User_Bookings();
-    Validations valid = new Validations();
     Items items= new Items();
     Scanner sc = new Scanner(System.in);
+
     System.out.println("Enter your name");
     String name = sc.next();
     usr.Getname(name); 
@@ -32,29 +31,9 @@ public class Presentation
     String Phone = sc.next();
     usr.GetPhone(Phone); 
 
-    System.out.println("Enter booking your date (dd/mm/yyyy)");
-    
-    String date = sc.next();
-    
-    if (valid.dateAvailable(date)== false) {
-        while (valid.dateAvailable(date)==false) {
-            System.out.println("Date is taken");
-            System.out.println("Enter booking your date (dd/mm/yyyy)");
-            date =sc.next();
-            if (valid.validDate(date)==false) {
-                System.out.println("Date must be 15 days from today");
-                System.out.println("Enter booking your date (dd/mm/yyyy)");
-                date=sc.next();
-                
-            }
-        }
-    }
-    
-        
-    
-    
-    //long d = Date.parse(sc.next());
-    //usr.GetDate(d); 
+    System.out.println("Enter booking your date");
+    long d = Date.parse(sc.next());
+    usr.GetDate(d); 
 
     System.out.println("Enter your Phone address");
     String address = sc.next();
@@ -81,12 +60,12 @@ public class Presentation
 
 
 
+
     System.out.println("Enter any other info you want us to know");
     String Info = sc.next();
     usr.GetExtraInformation(Info); 
     usr.Text();
         
-
 
    // Date date = Date.parse(d);
    
