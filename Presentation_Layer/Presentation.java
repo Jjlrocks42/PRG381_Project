@@ -102,10 +102,14 @@ public class Presentation
     System.out.print("\033[H\033[2J");  
     System.out.flush();  
 
+
+    
+    //no longer needed beacause a function was written in validations(
     Opps opp1 = Opps.exit;
     int counter=1;
 
-    for (Opps opp : Opps.values()) 
+
+            for (Opps opp : Opps.values()) 
     {
         System.out.println(counter+".) "+opp);
         

@@ -17,7 +17,7 @@ public class Validations implements Validators {
     
    
     @Override
-    public boolean validDate(String bookingDate) {//checks if date is 15 days from current date
+    public boolean validDate(String bookingDate) {//checks if date is 15 days from current date(works)
         boolean valid = false;
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/uuuu");//format date
@@ -39,10 +39,10 @@ public class Validations implements Validators {
     public boolean dateAvailable(String bookingDate) throws IOException {
         boolean available=true;
         User_Bookings usr = new User_Bookings();
-        User_Bookings[] userbookings = usr.read_file();
+        List<User_Bookings> userbookings = usr.read_file();
         
         for (User_Bookings user_Bookings : userbookings) {
-            if(user_Bookings.date == bookingDate)}{
+            if(user_Bookings.date == Long.pabookingDate)}{
                 available = false;
             }
 

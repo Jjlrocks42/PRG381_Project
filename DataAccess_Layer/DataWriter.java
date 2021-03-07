@@ -11,7 +11,7 @@ public interface DataWriter {
 
     public void GetPhone( String phoneNumber);
 
-    public void GetDate( Long d);
+    public void GetDate( String d);
     
     public void GetAdress( String adress);
 
