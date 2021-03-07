@@ -42,18 +42,17 @@ public class Validations implements Validators {
         List<User_Bookings> userbookings = usr.read_file();
         
         for (User_Bookings user_Bookings : userbookings) {
-            if(user_Bookings.date == Long.pabookingDate)}{
+            if(user_Bookings.date == bookingDate){
                 available = false;
             }
 
-        }
         }
     
          
         
         return available;
     }
-
+    
     public static String[] unavailibleDates(){
         User_Bookings[] dates;
         int i = 0;
