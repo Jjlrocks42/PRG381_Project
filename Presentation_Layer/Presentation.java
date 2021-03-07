@@ -112,6 +112,7 @@ public class Presentation
             for (Opps opp : Opps.values()) 
     {
         System.out.println(counter+".) "+opp);
+        counter++;
         
     }
 
