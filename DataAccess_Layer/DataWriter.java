@@ -11,7 +11,7 @@ public interface DataWriter {
 
     public void GetPhone( String phoneNumber);
 
-    public void GetDate( Date Booking_Date);
+    public void GetDate( Long d);
     
     public void GetAdress( String adress);
 
