@@ -2,18 +2,38 @@ package DataAccess_Layer;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.io.*;
 import java.util.Scanner;
 
 
 
-public class Items {
+public class Items implements DataWriter
+ {
 
 
-    private List 
-public String Name;
-public double Price;
-public int booking_num;
+        private List n;
+    public String Name;
+    public double Price;
+    public int booking_num;
+    public int amount;
+
+    void Items()
+    {
+
+    }
+
+
+    
+    void Items(String ItemName,Double price,int Amount ,int Booking_num)
+    {
+        this.Name=ItemName;
+        this.Price=price;
+        this.amount=Amount;
+
+    }
+
+
 
     @Override
     public void Getname(String name) {
@@ -21,11 +41,9 @@ public int booking_num;
         this.Name=name;
     }
 
-    @Override
-    public void GetDate(Date Booking_Date) {
-        // TODO Auto-generated method stub
+  
 
-    }
+
 
     @Override
     public void GetExtraInformation(String info) {
@@ -68,11 +86,7 @@ public int booking_num;
 
     }
 
-    @Override
-    public void GetDate(long Booking_Date) {
-        // TODO Auto-generated method stub
-
-    }
+    
 
     @Override
     public void GetAdress(String adress) {
@@ -133,6 +147,16 @@ public int booking_num;
         }
         
 
+        
+    }
+
+   
+
+
+
+    @Override
+    public void GetDate(String d) {
+        // TODO Auto-generated method stub
         
     }
     
